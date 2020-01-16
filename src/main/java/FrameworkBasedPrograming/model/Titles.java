@@ -5,13 +5,13 @@ import java.sql.Timestamp;
 
 @Entity
 public class Titles {
-    @Id
     @Column(name="emp_no", nullable = false)
     private Long empNo;
 
     @Column(name="title", nullable = false)
     private String title;
 
+    @Id
     @Column(name="from_date", nullable = false)
     private Timestamp fromDate;
 

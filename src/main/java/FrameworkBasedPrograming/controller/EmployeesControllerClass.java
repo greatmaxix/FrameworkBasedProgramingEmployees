@@ -6,6 +6,7 @@ import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -18,6 +19,39 @@ class EmployeesControllerClass {
 
     @RequestMapping(value="/all", method = RequestMethod.GET)
     public Collection<Employees> fetchAllEmployees() { return employeeSearchService.listEmployees(); }
+
+    @RequestMapping(value = "/employeeFirstName", method = RequestMethod.GET)
+    public Collection<Employees> getEmployeesByFirstName(
+            @RequestParam(value = "employeeFirstName") String first_name
+    )
+    {
+        return employeeSearchService.listEmployeesByFirstName(first_name);
+    }
+
+    @RequestMapping(value = "/employeeLastName", method = RequestMethod.GET)
+    public Collection<Employees> getEmployeesByLastName(
+            @RequestParam(value = "employeeLastName") String last_name
+    )
+    {
+        return employeeSearchService.listEmployeesByLastName(last_name);
+    }
+
+    @RequestMapping(value = "/employeeFullName", method = RequestMethod.GET)
+    public Collection<Employees> getEmployeesByFullName(
+            @RequestParam(value = "employeeFirstName") String first_name,
+            @RequestParam(value = "employeeLastName") String last_name
+    )
+    {
+        return employeeSearchService.listEmployeesByFullName(first_name, last_name);
+    }
+
+    @RequestMapping(value = "/employeeHireDate", method = RequestMethod.GET)
+    public Collection<Employees> getEmployeesByHireDate(
+            @RequestParam(value = "employeeHireDate") Timestamp hire_date
+    )
+    {
+        return employeeSearchService.listEmployeesByHireDate(hire_date);
+    }
 
     @RequestMapping(value = "/employeeId", method = RequestMethod.GET)
     public Employees getEmployeeById(

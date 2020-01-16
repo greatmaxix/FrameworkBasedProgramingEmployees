@@ -5,6 +5,7 @@ import FrameworkBasedPrograming.model.Departments;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 @Service
 public class DepartmentSearchServiceImplementation implements DepartmentSearchService {
@@ -22,6 +23,11 @@ public class DepartmentSearchServiceImplementation implements DepartmentSearchSe
     @Override
     public Departments queryDepartmentById(String id) {
         return departmentsRepository.findByDeptNo(id);
+    }
+
+    @Override
+    public Collection<Departments> queryDepartmentByName(String depName) {
+        return (Collection<Departments>) departmentsRepository.findAllByDeptName(depName);
     }
 
     @Override

@@ -7,8 +7,8 @@ import javax.persistence.*;
 @Entity
 public class Departments {
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    //@GeneratedValue(generator="system-uuid")
+    //@GenericGenerator(name="system-uuid", strategy = "uuid")
     @Column(name = "dept_no", nullable = false)
     private String deptNo;
 

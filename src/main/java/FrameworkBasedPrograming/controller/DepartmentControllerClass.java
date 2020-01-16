@@ -24,6 +24,14 @@ public class DepartmentControllerClass {
         return departmentSearchService.queryDepartmentById(dep_no);
     }
 
+    @RequestMapping(value = "/departmentName", method = RequestMethod.GET)
+    public Collection<Departments> getDepartmenstByName(
+            @RequestParam(value = "departmentName") String dep_name
+    )
+    {
+        return departmentSearchService.queryDepartmentByName(dep_name);
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.PUT)
     public void addDepartment(
             @RequestBody(required = true) Departments department

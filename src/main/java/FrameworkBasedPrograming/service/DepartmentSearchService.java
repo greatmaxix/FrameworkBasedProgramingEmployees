@@ -9,6 +9,8 @@ public interface DepartmentSearchService {
 
     public Departments queryDepartmentById(String id);
 
+    public Collection<Departments> queryDepartmentByName(String depName);
+
     void addDepartment(Departments departments);
 
     void updateDepartment(Departments departments);

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -51,5 +52,25 @@ public class EmployeeSearchServiceImplementation implements EmployeeSearchServic
     public void deleteEmployee(long id) {
         System.out.println(employeeRepository.findByEmpNo(id));
         employeeRepository.deleteByEmpNo(id);
+    }
+
+    @Override
+    public Collection<Employees> listEmployeesByFirstName(String first_name) {
+        return employeeRepository.findAllByFirstName(first_name);
+    }
+
+    @Override
+    public Collection<Employees> listEmployeesByLastName(String last_name) {
+        return employeeRepository.findAllByLastName(last_name);
+    }
+
+    @Override
+    public Collection<Employees> listEmployeesByFullName(String first_name, String last_name) {
+        return employeeRepository.findAllByFirstNameAndLastName(first_name, last_name);
+    }
+
+    @Override
+    public Collection<Employees> listEmployeesByHireDate(Timestamp hire_date) {
+        return employeeRepository.findAllByHireDate(hire_date);
     }
 }
