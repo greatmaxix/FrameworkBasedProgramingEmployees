@@ -1,10 +1,14 @@
 package FrameworkBasedPrograming.dao;
 
-import FrameworkBasedPrograming.model.Employee;
+import FrameworkBasedPrograming.model.Employees;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-//@Repository
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+import javax.transaction.Transactional;
 
+public interface EmployeeRepository extends CrudRepository<Employees, Long> {
+    //Optional<Employees> findByEmp_no(long id);
+    Employees findByEmpNo(long emp_no);
+
+    @Transactional
+    void deleteByEmpNo(long emp_no);
 }
