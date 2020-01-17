@@ -1,7 +1,7 @@
 package FrameworkBasedPrograming.model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 @Entity
 public class Salaries {
@@ -13,10 +13,10 @@ public class Salaries {
 
     @Id
     @Column(name="from_date", nullable = false)
-    private Timestamp fromDate;
+    private Date fromDate;
 
     @Column(name="to_date", nullable = false)
-    private Timestamp toDate;
+    private Date toDate;
 
     public long getEmpNo() {
         return empNo;
@@ -34,19 +34,19 @@ public class Salaries {
         this.salary = salary;
     }
 
-    public Timestamp getFromDate() {
+    public Date getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(Timestamp fromDate) {
+    public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
     }
 
-    public Timestamp getToDate() {
+    public Date getToDate() {
         return toDate;
     }
 
-    public void setToDate(Timestamp toDate) {
+    public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
 

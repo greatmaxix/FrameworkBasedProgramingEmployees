@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -70,7 +70,7 @@ public class EmployeeSearchServiceImplementation implements EmployeeSearchServic
     }
 
     @Override
-    public Collection<Employees> listEmployeesByHireDate(Timestamp hire_date) {
+    public Collection<Employees> listEmployeesByHireDate(Date hire_date) {
         return employeeRepository.findAllByHireDate(hire_date);
     }
 }

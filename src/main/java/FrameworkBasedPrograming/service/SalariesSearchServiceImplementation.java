@@ -4,7 +4,7 @@ import FrameworkBasedPrograming.dao.SalariesRepository;
 import FrameworkBasedPrograming.model.Salaries;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Collection;
 
 @Service
@@ -21,18 +21,21 @@ public class SalariesSearchServiceImplementation implements SalariesSearchServic
     }
 
     @Override
-    public void updateSalary(Salaries salary) {
-        Salaries temp_sal = salariesRepository.findByEmpNoAndFromDate(salary.getEmpNo(), salary.getFromDate());
-        temp_sal.setEmpNo(salary.getEmpNo());
-        temp_sal.setFromDate(salary.getFromDate());
-        temp_sal.setToDate(salary.getToDate());
-        temp_sal.setSalary(salary.getSalary());
-        salariesRepository.save(temp_sal);
+    public void updateSalary(Salaries oldSalary, Salaries newSalary) {
+        salariesRepository.deleteByEmpNoAndFromDate(oldSalary.getEmpNo(), oldSalary.getFromDate());
+        salariesRepository.save(newSalary);
     }
 
     @Override
-    public void deleteSalary(long emp_no, Timestamp from_date) {
-        salariesRepository.deleteByEmpNoAndFromDate(emp_no, from_date);
+    public void deleteSalary(long emp_no, Date from_date) {
+        Salaries toBeDeletedSalary = this.getSalaryByEmpNoAndFromDate(emp_no, from_date);
+        salariesRepository.delete(toBeDeletedSalary);
+        //salariesRepository.deleteByEmpNoAndFromDate(emp_no, from_date);
+    }
+
+    @Override
+    public Salaries getSalaryByEmpNoAndFromDate(long emp_no, Date from_date) {
+        return salariesRepository.findSalariesByEmpNoAndFromDate(emp_no, from_date);
     }
 
     @Override
@@ -41,12 +44,12 @@ public class SalariesSearchServiceImplementation implements SalariesSearchServic
     }
 
     @Override
-    public Collection<Salaries> getAllSalariesBetweenDates(Timestamp from_date, Timestamp to_date) {
-        return salariesRepository.findAllByFromDateAndToDate(from_date, to_date);
+    public Collection<Salaries> getAllSalariesBetweenDates(Date from_date, Date to_date) {
+        return salariesRepository.findSalariesByFromDateGreaterThanEqualAndToDateLessThanEqual(from_date, to_date);
     }
 
     @Override
-    public Collection<Salaries> getAllSalariesByEmpNoBetweenDates(long emp_no, Timestamp from_date, Timestamp to_date) {
-        return salariesRepository.findAllByEmpNoAndFromDateAndToDate(emp_no, from_date, to_date);
+    public Collection<Salaries> getAllSalariesByEmpNoBetweenDates(long emp_no, Date from_date, Date to_date) {
+        return salariesRepository.findSalariesByFromDateGreaterThanEqualAndToDateLessThanEqualAndEmpNo(from_date, to_date, emp_no);
     }
 }

@@ -4,7 +4,7 @@ import FrameworkBasedPrograming.model.Employees;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Collection;
 
 public interface EmployeeRepository extends CrudRepository<Employees, Long> {
@@ -20,6 +20,6 @@ public interface EmployeeRepository extends CrudRepository<Employees, Long> {
 
     Collection<Employees> findAllByFirstNameAndLastName(String first_name, String last_name);
 
-    Collection<Employees> findAllByHireDate(Timestamp hire_date);
+    Collection<Employees> findAllByHireDate(Date hire_date);
 
 }

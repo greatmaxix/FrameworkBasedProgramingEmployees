@@ -1,7 +1,7 @@
 package FrameworkBasedPrograming.model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Collection;
 
 enum Gender {
@@ -24,10 +24,10 @@ public class Employees {
     private String lastName;
 
     @Column(name="birth_date", nullable = false)
-    private Timestamp birthDate;
+    private Date birthDate;
 
     @Column(name="hire_date", nullable = false)
-    private Timestamp hireDate;
+    private Date hireDate;
 
     @Column(name="gender", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -86,11 +86,11 @@ public class Employees {
         return lastName;
     }
 
-    public Timestamp getBirth_date() {
+    public Date getBirth_date() {
         return birthDate;
     }
 
-    public Timestamp getHire_date() {
+    public Date getHire_date() {
         return hireDate;
     }
 
@@ -114,11 +114,11 @@ public class Employees {
         this.lastName = last_name;
     }
 
-    public void setBirth_date(Timestamp birth_date) {
+    public void setBirth_date(Date birth_date) {
         this.birthDate = birth_date;
     }
 
-    public void setHire_date(Timestamp hire_date) {
+    public void setHire_date(Date hire_date) {
         this.hireDate = hire_date;
     }
 

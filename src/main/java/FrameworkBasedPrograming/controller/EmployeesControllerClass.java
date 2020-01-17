@@ -2,13 +2,11 @@ package FrameworkBasedPrograming.controller;
 
 import FrameworkBasedPrograming.model.Employees;
 import FrameworkBasedPrograming.service.EmployeeSearchService;
-import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = {"/employees"})
@@ -47,7 +45,7 @@ class EmployeesControllerClass {
 
     @RequestMapping(value = "/employeeHireDate", method = RequestMethod.GET)
     public Collection<Employees> getEmployeesByHireDate(
-            @RequestParam(value = "employeeHireDate") Timestamp hire_date
+            @RequestParam(value = "employeeHireDate") Date hire_date
     )
     {
         return employeeSearchService.listEmployeesByHireDate(hire_date);
