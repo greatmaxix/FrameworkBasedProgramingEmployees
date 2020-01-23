@@ -24,4 +24,15 @@ public interface EmployeeSearchService {
 
     public Collection<Employees> listEmployeesByHireDate(Date hire_date);
 
+    Collection<Employees> listEmployeesByDepartment(String dep_no);
+
+    Collection<Employees> listEmployeesByTitle(String title);
+
+    Collection<Employees> listDepartmentManagers(String dep_no);
+    //get all workers
+    //get workers from to date
+    //get all managers
+    //get workers bt title
+    //get by department?
+
 }

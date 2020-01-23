@@ -28,9 +28,7 @@ public class SalariesSearchServiceImplementation implements SalariesSearchServic
 
     @Override
     public void deleteSalary(long emp_no, Date from_date) {
-        Salaries toBeDeletedSalary = this.getSalaryByEmpNoAndFromDate(emp_no, from_date);
-        salariesRepository.delete(toBeDeletedSalary);
-        //salariesRepository.deleteByEmpNoAndFromDate(emp_no, from_date);
+        salariesRepository.deleteByEmpNoAndFromDate(emp_no, from_date);
     }
 
     @Override

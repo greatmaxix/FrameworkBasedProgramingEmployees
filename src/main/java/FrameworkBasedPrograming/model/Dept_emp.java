@@ -6,13 +6,13 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 @Entity
-public class Dept_manager {
+public class Dept_emp {
     @Id
     @Column(name="emp_no", nullable = false)
     private Long empNo;
 
     @Column(name="dept_no", nullable = false)
-    private String dept_no;
+    private char dept_no;
 
     @Column(name="from_date", nullable = false)
     private Date fromDate;
@@ -20,17 +20,14 @@ public class Dept_manager {
     @Column(name="to_date", nullable = false)
     private Date toDate;
 
-    public Dept_manager() {
+    public Dept_emp() {
     }
 
-    @Override
-    public String toString() {
-        return "Dept_manager{" +
-                "empNo=" + empNo +
-                ", dept_no=" + dept_no +
-                ", fromDate=" + fromDate +
-                ", toDate=" + toDate +
-                '}';
+    public Dept_emp(Long empNo, char dept_no, Date fromDate, Date toDate) {
+        this.empNo = empNo;
+        this.dept_no = dept_no;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
     public Long getEmpNo() {
@@ -41,11 +38,11 @@ public class Dept_manager {
         this.empNo = empNo;
     }
 
-    public String getDept_no() {
+    public char getDept_no() {
         return dept_no;
     }
 
-    public void setDept_no(String dept_no) {
+    public void setDept_no(char dept_no) {
         this.dept_no = dept_no;
     }
 
@@ -63,5 +60,15 @@ public class Dept_manager {
 
     public void setToDate(Date toDate) {
         this.toDate = toDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Dept_emp{" +
+                "empNo=" + empNo +
+                ", dept_no=" + dept_no +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                '}';
     }
 }

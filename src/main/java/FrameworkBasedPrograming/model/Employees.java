@@ -33,6 +33,14 @@ public class Employees {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    public Collection<Dept_manager> getDeptManagers() {
+        return deptManagers;
+    }
+
+    public void setDeptManagers(Collection<Dept_manager> deptManagers) {
+        this.deptManagers = deptManagers;
+    }
+
     public Collection<Titles> getTitles() {
         return titles;
     }
@@ -52,6 +60,8 @@ public class Employees {
                 ", gender=" + gender +
                 ", titles=" + titles +
                 ", salaries=" + salaries +
+                ", dept_manager=" + deptManagers +
+                ", dept_emp=" + deptEmp +
                 '}';
     }
 
@@ -74,6 +84,26 @@ public class Employees {
     )
     @JoinColumn(name = "emp_no")
     private Collection<Salaries> salaries;
+
+    @OneToMany(
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "emp_no")
+    private Collection<Dept_manager> deptManagers;
+
+    @OneToMany(
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "emp_no")
+    private Collection<Dept_emp> deptEmp;
+
+    public Collection<Dept_emp> getDeptEmp() {
+        return deptEmp;
+    }
+
+    public void setDeptEmp(Collection<Dept_emp> deptEmp) {
+        this.deptEmp = deptEmp;
+    }
 
     public Employees() {
     }

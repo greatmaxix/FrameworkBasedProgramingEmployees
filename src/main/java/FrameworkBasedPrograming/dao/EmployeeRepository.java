@@ -1,7 +1,10 @@
 package FrameworkBasedPrograming.dao;
 
 import FrameworkBasedPrograming.model.Employees;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
@@ -11,8 +14,10 @@ public interface EmployeeRepository extends CrudRepository<Employees, Long> {
     //Optional<Employees> findByEmp_no(long id);
     Employees findByEmpNo(long emp_no);
 
+    @Modifying
+    @Query(value = "DELETE FROM Employees e WHERE e.empNo = :empNo")
     @Transactional
-    void deleteByEmpNo(long emp_no);
+    void deleteByEmpNo(@Param("empNo") long empNo);
 
     Collection<Employees> findAllByFirstName(String first_name);
 

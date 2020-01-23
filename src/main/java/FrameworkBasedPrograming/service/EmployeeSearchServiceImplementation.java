@@ -1,6 +1,9 @@
 package FrameworkBasedPrograming.service;
 
+import FrameworkBasedPrograming.dao.DepartmentsRepository;
+import FrameworkBasedPrograming.dao.Dept_managerRepository;
 import FrameworkBasedPrograming.dao.EmployeeRepository;
+import FrameworkBasedPrograming.model.Departments;
 import FrameworkBasedPrograming.model.Employees;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 import com.sun.xml.bind.v2.model.core.ID;
@@ -13,10 +16,13 @@ import java.util.Optional;
 @Service
 public class EmployeeSearchServiceImplementation implements EmployeeSearchService {
     private EmployeeRepository employeeRepository;
+    private Dept_managerSearchService dept_managerSearchService;
 
-    public EmployeeSearchServiceImplementation(EmployeeRepository employeeRepository) {
+    public EmployeeSearchServiceImplementation(EmployeeRepository employeeRepository, DepartmentsRepository departmentsRepository) {
         this.employeeRepository = employeeRepository;
     }
+
+
 
     @Override
     public Collection<Employees> listEmployees() {
@@ -72,5 +78,21 @@ public class EmployeeSearchServiceImplementation implements EmployeeSearchServic
     @Override
     public Collection<Employees> listEmployeesByHireDate(Date hire_date) {
         return employeeRepository.findAllByHireDate(hire_date);
+    }
+
+    @Override
+    public Collection<Employees> listEmployeesByDepartment(String dep_no) {
+        //how can i inject other services or repositories ?
+        return null;
+    }
+
+    @Override
+    public Collection<Employees> listEmployeesByTitle(String title) {
+        return null;
+    }
+
+    @Override
+    public Collection<Employees> listDepartmentManagers(String dep_no) {
+        return null;
     }
 }
