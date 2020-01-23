@@ -12,7 +12,7 @@ public class Dept_manager {
     private Long empNo;
 
     @Column(name="dept_no", nullable = false)
-    private String dept_no;
+    private String deptNo;
 
     @Column(name="from_date", nullable = false)
     private Date fromDate;
@@ -27,7 +27,7 @@ public class Dept_manager {
     public String toString() {
         return "Dept_manager{" +
                 "empNo=" + empNo +
-                ", dept_no=" + dept_no +
+                ", dept_no=" + deptNo +
                 ", fromDate=" + fromDate +
                 ", toDate=" + toDate +
                 '}';
@@ -42,11 +42,11 @@ public class Dept_manager {
     }
 
     public String getDept_no() {
-        return dept_no;
+        return deptNo;
     }
 
     public void setDept_no(String dept_no) {
-        this.dept_no = dept_no;
+        this.deptNo = dept_no;
     }
 
     public Date getFromDate() {

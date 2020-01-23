@@ -18,11 +18,9 @@ public class EmployeeSearchServiceImplementation implements EmployeeSearchServic
     private EmployeeRepository employeeRepository;
     private Dept_managerSearchService dept_managerSearchService;
 
-    public EmployeeSearchServiceImplementation(EmployeeRepository employeeRepository, DepartmentsRepository departmentsRepository) {
+    public EmployeeSearchServiceImplementation(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
-
-
 
     @Override
     public Collection<Employees> listEmployees() {

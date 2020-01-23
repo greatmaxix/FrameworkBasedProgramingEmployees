@@ -23,12 +23,12 @@ public class Dept_managerSearchServiceImplementation implements Dept_managerSear
 
     @Override
     public Collection<Dept_manager> listDepartmentManagersByDeptNo(String Dept_no) {
-        return dept_managerRepository.findAllByDept_no(Dept_no);
+        return dept_managerRepository.findAllByDeptNo(Dept_no);
     }
 
     @Override
     public Dept_manager getDepartmentManagerByFromDateAndToDateAndDept_no(Date from_date, Date to_date, String dept_no) {
-        return dept_managerRepository.findByFromDateAndToDateAndDept_no(from_date, to_date, dept_no);
+        return dept_managerRepository.findByFromDateAndToDateAndDeptNo(from_date, to_date, dept_no);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Dept_managerSearchServiceImplementation implements Dept_managerSear
     public void updateDeptManager(OldNewDeptManager oldNewDeptManager) {
         Dept_manager oldDeptMan = oldNewDeptManager.getOldDeptManager();
         Dept_manager newDeptMan = oldNewDeptManager.getNewDeptManager();
-        Dept_manager temp_deptMan = dept_managerRepository.findByFromDateAndToDateAndDept_no(oldDeptMan.getFromDate(), oldDeptMan.getToDate(), oldDeptMan.getDept_no());
+        Dept_manager temp_deptMan = dept_managerRepository.findByFromDateAndToDateAndDeptNo(oldDeptMan.getFromDate(), oldDeptMan.getToDate(), oldDeptMan.getDept_no());
         temp_deptMan.setDept_no(newDeptMan.getDept_no());
         temp_deptMan.setEmpNo(newDeptMan.getEmpNo());
         temp_deptMan.setFromDate(newDeptMan.getFromDate());
