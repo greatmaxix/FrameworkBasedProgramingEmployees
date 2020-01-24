@@ -31,4 +31,9 @@ public class WebConfiguration {
     public Dept_managerSearchService dept_managerSearchService(Dept_managerRepository dept_managerRepository) {
         return new Dept_managerSearchServiceImplementation(dept_managerRepository);
     }
+
+    @Bean
+    public Dept_empSearchService deptEmpSearchService(Dept_empRepository deptEmpRepository) {
+        return  new Dept_empSearchServiceImplementation(deptEmpRepository);
+    }
 }
