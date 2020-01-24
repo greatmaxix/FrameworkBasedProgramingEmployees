@@ -1,7 +1,8 @@
-package FrameworkBasedPrograming.service;
+package FrameworkBasedPrograming.service.serviceImpl;
 
 import FrameworkBasedPrograming.dao.TitlesRepository;
 import FrameworkBasedPrograming.model.Titles;
+import FrameworkBasedPrograming.service.TitlesSearchService;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;

@@ -1,10 +1,12 @@
-package FrameworkBasedPrograming.service;
+package FrameworkBasedPrograming.service.serviceImpl;
 
 import FrameworkBasedPrograming.dao.DepartmentsRepository;
 import FrameworkBasedPrograming.dao.Dept_managerRepository;
 import FrameworkBasedPrograming.dao.EmployeeRepository;
 import FrameworkBasedPrograming.model.Departments;
 import FrameworkBasedPrograming.model.Employees;
+import FrameworkBasedPrograming.service.Dept_managerSearchService;
+import FrameworkBasedPrograming.service.EmployeeSearchService;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,8 @@
-package FrameworkBasedPrograming.service;
+package FrameworkBasedPrograming.service.serviceImpl;
 
 import FrameworkBasedPrograming.dao.SalariesRepository;
 import FrameworkBasedPrograming.model.Salaries;
+import FrameworkBasedPrograming.service.SalariesSearchService;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;

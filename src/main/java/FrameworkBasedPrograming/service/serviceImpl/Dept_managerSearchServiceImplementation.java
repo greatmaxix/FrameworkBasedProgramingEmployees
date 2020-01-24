@@ -1,8 +1,9 @@
-package FrameworkBasedPrograming.service;
+package FrameworkBasedPrograming.service.serviceImpl;
 
 import FrameworkBasedPrograming.dao.Dept_managerRepository;
 import FrameworkBasedPrograming.model.Dept_manager;
 import FrameworkBasedPrograming.model.OldNewDeptManager;
+import FrameworkBasedPrograming.service.Dept_managerSearchService;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;

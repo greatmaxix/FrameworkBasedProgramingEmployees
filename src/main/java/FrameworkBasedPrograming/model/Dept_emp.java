@@ -12,7 +12,7 @@ public class Dept_emp {
     private Long empNo;
 
     @Column(name="dept_no", nullable = false)
-    private char dept_no;
+    private String deptNo;
 
     @Column(name="from_date", nullable = false)
     private Date fromDate;
@@ -23,9 +23,9 @@ public class Dept_emp {
     public Dept_emp() {
     }
 
-    public Dept_emp(Long empNo, char dept_no, Date fromDate, Date toDate) {
+    public Dept_emp(Long empNo, String dept_no, Date fromDate, Date toDate) {
         this.empNo = empNo;
-        this.dept_no = dept_no;
+        this.deptNo = dept_no;
         this.fromDate = fromDate;
         this.toDate = toDate;
     }
@@ -38,12 +38,12 @@ public class Dept_emp {
         this.empNo = empNo;
     }
 
-    public char getDept_no() {
-        return dept_no;
+    public String getDept_no() {
+        return deptNo;
     }
 
-    public void setDept_no(char dept_no) {
-        this.dept_no = dept_no;
+    public void setDept_no(String dept_no) {
+        this.deptNo = dept_no;
     }
 
     public Date getFromDate() {
@@ -66,7 +66,7 @@ public class Dept_emp {
     public String toString() {
         return "Dept_emp{" +
                 "empNo=" + empNo +
-                ", dept_no=" + dept_no +
+                ", dept_no=" + deptNo +
                 ", fromDate=" + fromDate +
                 ", toDate=" + toDate +
                 '}';

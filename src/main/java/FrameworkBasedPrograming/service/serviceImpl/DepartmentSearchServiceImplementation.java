@@ -1,7 +1,8 @@
-package FrameworkBasedPrograming.service;
+package FrameworkBasedPrograming.service.serviceImpl;
 
 import FrameworkBasedPrograming.dao.DepartmentsRepository;
 import FrameworkBasedPrograming.model.Departments;
+import FrameworkBasedPrograming.service.DepartmentSearchService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
